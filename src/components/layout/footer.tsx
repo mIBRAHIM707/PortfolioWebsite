@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { personalInfo, socialLinks } from '@/lib/data';
 import { Button } from '@/components/ui/button';
@@ -7,7 +8,7 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border/40 py-10 mt-auto">
-      <div className="container max-w-screen-2xl flex flex-col md:flex-row items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-screen-2xl flex flex-col md:flex-row items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
         <p className="text-sm text-muted-foreground text-center md:text-left">
           &copy; {currentYear} {personalInfo.name}. All Rights Reserved.
         </p>
