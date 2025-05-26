@@ -1,9 +1,10 @@
+
 import Image from 'next/image';
 import { personalInfo, skillCategories, achievements, education } from '@/lib/data';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Award, School, Briefcase } from 'lucide-react'; // Assuming Briefcase for experience, or use a generic one.
+import { AiCoverLetterSnippetGenerator } from '@/components/ai-cover-letter-snippet-generator';
 
 export default function AboutPage() {
   return (
@@ -20,19 +21,28 @@ export default function AboutPage() {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">{personalInfo.name}</h1>
           <h2 className="text-2xl text-primary mb-4">{personalInfo.title}</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Hello! I'm Muhammad Ibrahim, a passionate Software Engineering student currently in my third year at GIKI.
-            My journey in tech is driven by a curiosity for solving complex problems and building innovative solutions.
-            I have a strong foundation in algorithms and data structures, proven by my performance in competitive programming like ICPC.
-            Beyond academics, I've dived into practical development, exploring game development, full-stack web applications, and the fascinating world of machine learning.
-            I thrive in collaborative environments and am always eager to learn new technologies and methodologies.
-            My goal is to leverage my skills to contribute to impactful projects and grow as a versatile software engineer.
+            Hello! I&apos;m Muhammad Ibrahim, a results-oriented and passionate Software Engineering student in my third year at GIKI.
+            My journey in technology is fueled by a relentless curiosity for solving complex problems and architecting innovative, user-centric solutions.
+            I possess a robust foundation in algorithms and data structures, validated by strong performances in competitive programming arenas like ICPC (National Top 12).
+            Beyond theoretical knowledge, I&apos;ve actively engaged in practical software development, building full-stack web applications, exploring game development, and delving into the fascinating realm of machine learning.
+            I excel in collaborative team environments and am perpetually driven to master new technologies and modern development methodologies.
+            My ambition is to apply my diverse skill set to contribute significantly to impactful projects and continuously evolve as a versatile and effective software engineer.
           </p>
         </div>
       </section>
 
+      {/* AI Cover Letter Snippet Generator Section */}
+      <section>
+        <h2 className="text-3xl font-bold text-center mb-4">Recruiter&apos;s Corner 🤖</h2>
+        <p className="text-lg text-muted-foreground text-center mb-10 max-w-3xl mx-auto">
+          Use the AI-powered assistant below to generate a tailored cover letter snippet based on specific job keywords, highlighting how Muhammad&apos;s skills and projects align with your needs.
+        </p>
+        <AiCoverLetterSnippetGenerator />
+      </section>
+
       {/* Key Skills Section */}
       <section>
-        <h2 className="text-3xl font-bold text-center mb-10">Technical Skills</h2>
+        <h2 className="text-3xl font-bold text-center mb-10">Technical Proficiency</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category) => (
             <Card key={category.name} className="shadow-md">
@@ -59,7 +69,7 @@ export default function AboutPage() {
 
       {/* Achievements Section */}
       <section>
-        <h2 className="text-3xl font-bold text-center mb-10">Achievements</h2>
+        <h2 className="text-3xl font-bold text-center mb-10">Key Achievements</h2>
         <div className="space-y-6">
           {achievements.map((achievement) => (
             <Card key={achievement.id} className="shadow-md">
@@ -80,7 +90,7 @@ export default function AboutPage() {
 
       {/* Education Section */}
       <section>
-        <h2 className="text-3xl font-bold text-center mb-10">Education</h2>
+        <h2 className="text-3xl font-bold text-center mb-10">Educational Background</h2>
         <div className="space-y-6">
           {education.map((edu) => (
             <Card key={edu.id} className="shadow-md">
