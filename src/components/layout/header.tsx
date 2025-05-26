@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -17,7 +18,6 @@ const navItems = [
   { label: 'Projects', href: '/projects' },
   { label: 'Resume', href: '/resume' },
   { label: 'Contact', href: '/contact' },
-  { label: 'AI Summary', href: '/ai-summary'}
 ];
 
 export function Header() {
@@ -41,7 +41,7 @@ export function Header() {
               href={item.href}
               className={cn(
                 "transition-colors hover:text-foreground/80",
-                pathname === item.href ? "text-foreground" : "text-foreground/60"
+                pathname === item.href || (item.href === "/" && pathname === "/home") ? "text-foreground font-semibold" : "text-foreground/60"
               )}
             >
               {item.label}
@@ -67,7 +67,7 @@ export function Header() {
                     href={item.href}
                     className={cn(
                       "text-lg font-medium transition-colors hover:text-primary",
-                      pathname === item.href ? "text-primary" : "text-foreground"
+                      pathname === item.href || (item.href === "/" && pathname === "/home") ? "text-primary" : "text-foreground"
                     )}
                     onClick={() => setMobileMenuOpen(false)}
                   >

@@ -1,4 +1,7 @@
+
 import { config } from 'dotenv';
 config();
 
-import '@/ai/flows/generate-portfolio-summary.ts';
+// AI Summary flow has been removed.
+// If you add new flows, import them here. For example:
+// import '@/ai/flows/your-new-flow.ts';

@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -45,35 +46,36 @@ body {
   }
  
   .dark {
-    --background: 227 13% 18%; /* Even Darker Charcoal #282C34 */
-    --foreground: 36 30% 88%;  /* Light Warm Off-white */
+    /* Spotify-inspired Dark Theme */
+    --background: 220 4% 7%; /* #121212 - Very dark gray, almost black */
+    --foreground: 0 0% 93%;  /* #EDEDED - Off-white/light gray */
     
-    --card: 204 19% 26%; /* Deep Charcoal #36454F */
-    --card-foreground: 36 30% 88%;
+    --card: 0 0% 16%; /* #282828 - Slightly lighter dark gray for cards */
+    --card-foreground: 0 0% 93%; /* #EDEDED */
     
-    --popover: 204 19% 26%;
-    --popover-foreground: 36 30% 88%;
+    --popover: 0 0% 12%; /* #1F1F1F - Darker popover */
+    --popover-foreground: 0 0% 93%; /* #EDEDED */
     
-    --primary: 207 44% 49%;    /* Deep Blue #4682B4 */
-    --primary-foreground: 0 0% 100%; /* White */
+    --primary: 141 76% 48%;    /* #1DB954 - Spotify Green */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF - White for max contrast */
     
-    --secondary: 204 19% 30%; /* Darker variant for secondary */
-    --secondary-foreground: 36 30% 88%;
+    --secondary: 0 0% 20%; /* #333333 - Darker gray for secondary elements */
+    --secondary-foreground: 0 0% 80%; /* #CCCCCC - Lighter gray text on secondary */
     
-    --muted: 204 19% 22%; /* Muted dark */
-    --muted-foreground: 36 20% 65%;
+    --muted: 0 0% 25%; /* #404040 - Muted dark gray */
+    --muted-foreground: 0 0% 55%; /* #8C8C8C - Muted foreground text */
     
-    --accent: 207 44% 49%;     /* Deep Blue #4682B4 for accent */
-    --accent-foreground: 0 0% 100%; /* White */
+    --accent: 141 76% 48%;     /* #1DB954 - Spotify Green for accent */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF - White */
     
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 72% 51%; /* #E53E3E - A brighter red for dark mode */
+    --destructive-foreground: 0 0% 98%; /* #FAFAFA */
     
-    --border: 204 19% 30%; /* Darker border */
-    --input: 204 19% 30%;
-    --ring: 207 44% 49%; /* Primary color for ring */
+    --border: 0 0% 22%; /* #383838 - Subtle border color */
+    --input: 0 0% 22%; /* #383838 - Input background */
+    --ring: 141 76% 48%; /* #1DB954 - Spotify Green for focus rings */
     
-    --chart-1: 220 70% 50%;
+    --chart-1: 141 70% 55%; /* Brighter green for charts */
     --chart-2: 160 60% 45%;
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
