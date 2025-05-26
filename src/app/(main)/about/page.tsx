@@ -4,7 +4,6 @@ import { personalInfo, skillCategories, achievements, education } from '@/lib/da
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { AiCoverLetterSnippetGenerator } from '@/components/ai-cover-letter-snippet-generator';
 
 export default function AboutPage() {
   return (
@@ -29,15 +28,6 @@ export default function AboutPage() {
             My ambition is to apply my diverse skill set to contribute significantly to impactful projects and continuously evolve as a versatile and effective software engineer.
           </p>
         </div>
-      </section>
-
-      {/* AI Cover Letter Snippet Generator Section */}
-      <section>
-        <h2 className="text-3xl font-bold text-center mb-4">Recruiter&apos;s Corner 🤖</h2>
-        <p className="text-lg text-muted-foreground text-center mb-10 max-w-3xl mx-auto">
-          Use the AI-powered assistant below to generate a tailored cover letter snippet based on specific job keywords, highlighting how Muhammad&apos;s skills and projects align with your needs.
-        </p>
-        <AiCoverLetterSnippetGenerator />
       </section>
 
       {/* Key Skills Section */}
