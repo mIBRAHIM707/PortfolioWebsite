@@ -1,19 +1,9 @@
 import type { Metadata } from 'next';
-// import { GeistSans } from 'geist/font/sans'; // Removed
-// import { GeistMono } from 'geist/font/mono'; // Removed
-import { Fira_Code } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
+// import { GeistMono } from 'geist/font/mono'; // Mono font can be added if specific mono sections are needed
 import './globals.css';
 import { ThemeProvider } from '@/components/layout/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
-
-// const geistSans = GeistSans; // Removed
-// const geistMono = GeistMono; // Removed
-
-const firaCode = Fira_Code({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-fira-code', // CSS variable for Fira Code
-});
 
 export const metadata: Metadata = {
   title: 'Muhammad Ibrahim - Software Engineering Student',
@@ -31,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${firaCode.variable} antialiased min-h-screen flex flex-col`}
+        className={`${GeistSans.className} antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider
           attribute="class"
