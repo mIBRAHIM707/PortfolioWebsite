@@ -5,9 +5,9 @@ export const personalInfo = {
   name: "Muhammad Ibrahim",
   title: "Software Engineering Student",
   email: "ibrahimclash707@gmail.com",
-  linkedin: "https://www.linkedin.com/in/muhammadibrahim-portfolio-placeholder", // Placeholder
-  github: "https://github.com/muhammadibrahim-placeholder", // Placeholder
-  leetcode: "https://leetcode.com/u/muhammadibrahim-placeholder/", // Placeholder
+  linkedin: "https://www.linkedin.com/in/muhammad-ibrahim-0b8083287/", // Placeholder
+  github: "https://github.com/mIBRAHIM707", // Placeholder
+  leetcode: "https://leetcode.com/u/m-ibrahim0077/", // Placeholder
   resumeUrl: "/resume_muhammad_ibrahim.pdf", // Placeholder PDF
   heroStatement: "Third-year Software Engineering student at GIKI with Dean's List honors, combining strong algorithmic problem-solving skills (ICPC top 12 nationally) with practical development experience in game development, full-stack web applications, and machine learning. Eager to contribute to innovative projects and grow as a software engineer.",
 };
