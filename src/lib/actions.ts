@@ -42,18 +42,13 @@ export async function submitContactForm(
     };
   }
 
-  // In a real application, you would send an email here.
-  // For this example, we'll just log it and simulate success.
   console.log("Contact Form Data:", validatedFields.data);
   console.log(`Simulating sending email to: ${personalInfo.email}`);
 
-  // Simulate network delay
   await new Promise(resolve => setTimeout(resolve, 1000));
 
   return {
-    message: "Your message has been sent successfully! Muhammad will get back to you soon.",
+    message: "Your message has been sent successfully! Muhammad Ibrahim will get back to you soon.",
     success: true,
   };
 }
-
-// AI Summary related actions, schemas, and types have been removed.

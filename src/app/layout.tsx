@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/layout/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Muhammad Ibrahim - Software Engineering Student',
+  title: 'Muhammad Ibrahim Portfolio',
   description: 'Personal portfolio of Muhammad Ibrahim, a Software Engineering student showcasing projects, skills, and achievements.',
   icons: {
     icon: '/favicon.ico',

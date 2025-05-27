@@ -17,7 +17,7 @@ export default function HomePage() {
       <section className="text-center pt-12 pb-16 md:pt-20 md:pb-24">
         <div className="container mx-auto px-4">
           <Avatar className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 border-4 border-primary shadow-xl">
-            <AvatarImage src="https://placehold.co/256x256.png" alt={personalInfo.name} data-ai-hint="profile portrait"/>
+            <AvatarImage src="/pik.jpg" alt={personalInfo.name} data-ai-hint="profile portrait"/>
             <AvatarFallback>{personalInfo.name.substring(0, 2).toUpperCase()}</AvatarFallback>
           </Avatar>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">

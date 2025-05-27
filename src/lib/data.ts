@@ -151,7 +151,7 @@ export const projects: Project[] = [
     features: ["Gameplay Mechanics", "UI Implementation", "Performance Optimization"],
     imageUrl: "/lab.png",
     imageHint: "game development",
-    githubUrl: "", // May not have a public repo
+    githubUrl: "",
   },
 ];
 
@@ -166,29 +166,36 @@ export type Achievement = {
 export const achievements: Achievement[] = [
   {
     id: "1",
-    title: "Dean's List Honors",
-    description: "Awarded Dean's List for academic excellence at GIKI.",
-    icon: Award,
-    year: "Multiple Semesters"
+    title: "1st Place in Google Developer Student Club Hackathon",
+    description: "Won 1st place in a hackathon organized by Google Developer Student Club GIKI for a Quantum Computing project.",
+    icon: Sparkles,
+    year: "2025"
   },
   {
     id: "2",
-    title: "ICPC National Top 12",
-    description: "Achieved Top 12 position nationally in the International Collegiate Programming Contest.",
-    icon: Target,
-    year: "2023"
+    title: "Microsoft Club Hackathon 3rd Place",
+    description: "Secured 3rd place in a hackathon hosted by Microsoft Club GIKI for an innovative project.",
+    icon: Sparkles,
+    year: "2024"
   },
   {
     id: "3",
-    title: "Microsoft Hackathon 3rd Place",
-    description: "Secured 3rd place in a Microsoft-sponsored hackathon for an innovative project.",
-    icon: Sparkles,
-    year: "2022"
+    title: "ICPC National Top 12 Prelim",
+    description: "Achieved Top 12 position nationally in the International Collegiate Programming Contest Prelimenary Round.",
+    icon: Target,
+    year: "2024"
   },
   {
     id: "4",
+    title: "Dean's List Honors",
+    description: "Awarded Dean's List for academic excellence at GIKI.",
+    icon: Award,
+    year: "4th Semester"
+  },
+  {
+    id: "5",
     title: "50% Merit Scholarship",
-    description: "Awarded a 50% merit-based scholarship for outstanding academic performance.",
+    description: "Awarded a 50% scholarship.",
     icon: School,
     year: "Ongoing"
   },
@@ -206,9 +213,9 @@ export type Education = {
 export const education: Education[] = [
   {
     id: "1",
-    institution: "Ghulam Ishaq Khan Institute (GIKI)",
+    institution: "Ghulam Ishaq Khan Institute of Engineering Sciences and Technology (GIKI)",
     degree: "Bachelor of Science in Software Engineering",
-    years: "2021 - Present",
+    years: "2023 - Present",
     description: "Currently in the third year, focusing on AI, web development, and competitive programming.",
     icon: School,
   },
@@ -216,8 +223,8 @@ export const education: Education[] = [
     id: "2",
     institution: "Lahore Grammar School (LGS)",
     degree: "A-Levels & O-Levels",
-    years: "Completed 2021",
-    description: "Achieved strong academic results, fostering a foundation in STEM subjects.",
+    years: "Completed 2023",
+    description: "Got a 100% scholarship award and achieved strong academic results, fostering a foundation in A-Level and O-level subjects.",
     icon: School,
   },
 ];
