@@ -32,7 +32,6 @@ export const skillCategories: SkillCategory[] = [
       { name: "Python" },
       { name: "JavaScript/TypeScript" },
       { name: "C#" },
-      { name: "Java" },
       { name: "HTML/CSS" },
     ],
   },
@@ -46,10 +45,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "Express.js" },
       { name: "Flask" },
       { name: "MongoDB" },
-      { name: "Firebase" },
       { name: "Tailwind CSS" },
       { name: "Vite" },
-      { name: "Spotify Web API" },
     ],
   },
   {
@@ -57,7 +54,7 @@ export const skillCategories: SkillCategory[] = [
     icon: Gamepad2,
     skills: [
       { name: "Unity" },
-      { name: "Unreal Engine (Basic)" },
+      { name: "SFML" },
       { name: "Pygame" },
     ],
   },
@@ -65,10 +62,10 @@ export const skillCategories: SkillCategory[] = [
     name: "Database/Cloud",
     icon: Database,
     skills: [
-      { name: "MySQL" },
+      { name: "Postgres SQL" },
       { name: "MongoDB" },
       { name: "Firebase" },
-      { name: "AWS (EC2, S3 basics)" },
+      { name: "Google Cloud" },
     ],
   },
   {
@@ -166,8 +163,8 @@ export type Achievement = {
 export const achievements: Achievement[] = [
   {
     id: "1",
-    title: "1st Place in Google Developer Student Club Hackathon",
-    description: "Won 1st place in a hackathon organized by Google Developer Student Club GIKI for a Quantum Computing project.",
+    title: "2nd Place in Google Developer Student Club Hackathon",
+    description: "Won 2nd place in a hackathon organized by Google Developer Student Club GIKI for a Quantum Computing project.",
     icon: Sparkles,
     year: "2025"
   },

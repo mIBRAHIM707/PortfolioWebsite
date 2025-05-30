@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { personalInfo, achievements, projects } from '@/lib/data';
-import { ArrowRight, Download, Send, Award as AwardIcon, Code, Users, Briefcase, Eye, Sparkles } from 'lucide-react';
+import { ArrowRight, Download, Send, Award as AwardIcon, Code, Users, Briefcase, Eye, Sparkles, Atom } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 export default function HomePage() {
@@ -16,15 +16,15 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="text-center pt-12 pb-16 md:pt-20 md:pb-24">
         <div className="container mx-auto px-4">
-          <Avatar className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-8 border-4 border-primary shadow-xl">
-            <AvatarImage src="/pik.jpg" alt={personalInfo.name} data-ai-hint="profile portrait"/>
+              <Avatar className="w-48 h-48 md:w-[300px] md:h-[300px] mx-auto mb-8 border-4 border-primary shadow-xl">
+            <AvatarImage src="/pik400x400.jpg" alt={personalInfo.name} data-ai-hint="profile portrait"/>
             <AvatarFallback>{personalInfo.name.substring(0, 2).toUpperCase()}</AvatarFallback>
           </Avatar>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
-            Hey, I&apos;m {personalInfo.name.split(" ")[1]} 👋
+            Hey, I'm {personalInfo.name.split(" ")[1]} 👋 {/* Or [1] if you prefer last name */}
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            A {personalInfo.title} at GIKI, passionate about building innovative software solutions and tackling complex challenges.
+            A {personalInfo.title} at GIKI & award winning hackathon competitor (Microsoft Club 3rd, GDSC 2nd), driven to build impactful solutions across game development, full-stack web, and machine learning.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
@@ -47,7 +47,12 @@ export default function HomePage() {
           <div className="md:col-span-2">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">A Bit About Me</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              I&apos;m a third-year Software Engineering student with a strong foundation in algorithmic problem-solving, demonstrated by achievements like reaching the ICPC Nationals. My experience spans game development, full-stack web applications, and machine learning. I thrive on learning new technologies and collaborating to create impactful software.
+              Hello! I'm Muhammad Ibrahim. My journey into Software Engineering is fueled by the drive to transform 
+              innovative ideas into tangible, impactful solutions. This isn't just a statement - it's a practice, 
+              proven through successes like achieving <b>3rd place at the Microsoft Club GIKI Hackathon and 2nd place at 
+              the GDGoC GIKI Hackathon</b>, and brought to life through hands-on development in game design, full stack web 
+              applications, and machine learning. I'm energized by continuous learning and thrive in collaborative 
+              environments where creative problem solving leads to impactful software.
             </p>
             <Button variant="secondary" asChild>
               <Link href="/about">
@@ -57,7 +62,7 @@ export default function HomePage() {
           </div>
           <div className="hidden md:flex justify-center items-center">
              <Image 
-                src="https://placehold.co/400x400.png" // Replace with a meaningful image
+                src="/400.png" // Replace with a meaningful image
                 alt="Abstract representation of coding"
                 width={300}
                 height={300}
@@ -73,10 +78,22 @@ export default function HomePage() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What I Do</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
-            { title: "Web Development", description: "Building responsive and dynamic web applications using modern frameworks like Next.js and React.", icon: Code },
-            { title: "Problem Solving", description: "Leveraging strong algorithmic skills to tackle complex challenges and optimize solutions.", icon: Sparkles },
-            { title: "Collaborative Projects", description: "Experienced in team environments, contributing to shared goals and learning from peers.", icon: Users },
-          ].map(skill => (
+              {
+                title: "Web Development",
+                description: "Crafting seamless, user-centric web experiences with cutting-edge frameworks (like Next.js, React) to deliver high-performance, modern applications.",
+                icon: Code // Replace with your actual icon component
+              },
+              {
+                title: "Problem Solving",
+                description: "Applying proven algorithmic expertise, sharpened by hackathon successes, to dissect complex challenges and engineer efficient, innovative solutions.",
+                icon: Sparkles // Replace with your actual icon component
+              },
+              {
+                title: "Machine Learning",
+                description: "Leveraging data to build and deploy intelligent models (using TensorFlow, scikit-learn, etc.) that drive insights, automation, and smarter application features.",
+                icon: Atom // Replace with your actual icon component (or another suitable ML icon)
+              }
+            ].map(skill => (
             <Card key={skill.title} className="text-center shadow-md hover:shadow-xl transition-shadow duration-300 bg-card">
               <CardHeader>
                 <div className="mx-auto bg-primary/20 text-primary rounded-full p-4 w-fit mb-4">

@@ -10,22 +10,19 @@ export default function AboutPage() {
     <div className="space-y-16 py-8">
       {/* About Me Section */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-        <div className="md:col-span-1 flex justify-center">
+        {/* <div className="md:col-span-1 flex justify-center">
           <Avatar className="w-48 h-48 md:w-64 md:h-64 border-4 border-primary shadow-lg">
             <AvatarImage src="https://placehold.co/256x256.png" alt={personalInfo.name} data-ai-hint="profile portrait" />
             <AvatarFallback>{personalInfo.name.substring(0, 2).toUpperCase()}</AvatarFallback>
           </Avatar>
-        </div>
-        <div className="md:col-span-2">
+        </div> */}
+        <div className="md:col-span-3">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6">{personalInfo.name}</h1>
           <h2 className="text-2xl text-primary mb-4">{personalInfo.title}</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Hello! I&apos;m Muhammad Ibrahim, a results-oriented and passionate Software Engineering student in my third year at GIKI.
-            My journey in technology is fueled by a relentless curiosity for solving complex problems and architecting innovative, user-centric solutions.
-            I possess a robust foundation in algorithms and data structures, validated by strong performances in competitive programming arenas like ICPC (National Top 12).
-            Beyond theoretical knowledge, I&apos;ve actively engaged in practical software development, building full-stack web applications, exploring game development, and delving into the fascinating realm of machine learning.
-            I excel in collaborative team environments and am perpetually driven to master new technologies and modern development methodologies.
-            My ambition is to apply my diverse skill set to contribute significantly to impactful projects and continuously evolve as a versatile and effective software engineer.
+            Hi, I'm Muhammad Ibrahim, a third-year GIKI Software Engineering student driven to engineer impactful, user-focused solutions. My problem-solving capabilities are demonstrated through successes such as placing <strong>3rd in the Microsoft Club GIKI Hackathon</strong> and <strong>2nd in the Google Developer Group on Campus (GDGoC) GIKI Hackathon</strong>, built upon a solid foundation in algorithms.
+            <br/><br/>
+            My experience spans building responsive full-stack web applications, developing engaging games, and delving into machine learning. I'm a proactive team player, always eager to learn new technologies and contribute to collaborative success. My goal is to apply this versatile skill set to create innovative software that makes a difference.
           </p>
         </div>
       </section>
