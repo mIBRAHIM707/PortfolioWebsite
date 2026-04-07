@@ -31,11 +31,14 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = 'force-static';
+export const revalidate = 86400; // Static re-gen every 24hrs
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <body
         className={`${archivo.variable} ${spaceGrotesk.variable} antialiased min-h-screen flex flex-col`}
       >

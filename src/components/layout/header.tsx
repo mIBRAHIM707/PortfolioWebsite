@@ -40,7 +40,7 @@ export function Header() {
         className={cn(
           "pointer-events-auto flex items-center justify-between w-full max-w-5xl gap-4 px-4 py-2.5 rounded-2xl transition-all duration-300 ease-out",
           scrolled
-            ? "glass shadow-xl shadow-black/20 border border-white/[0.06]"
+            ? "backdrop-blur-md bg-background/70 shadow-xl shadow-black/20 border border-white/[0.06]"
             : "bg-transparent"
         )}
       >
