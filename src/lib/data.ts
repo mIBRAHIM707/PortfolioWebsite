@@ -1,15 +1,15 @@
-import { Linkedin, Github, Code, Mail, Brain, Target, Sparkles, Gamepad2, Database, Webhook, Cpu, Award, School, Briefcase } from 'lucide-react';
+import { Linkedin, Github, Code, Mail, Brain, Target, Sparkles, Database, Webhook, Cpu, Award, School, Layers, Terminal } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 export const personalInfo = {
   name: "Muhammad Ibrahim",
-  title: "Software Engineering Student",
+  title: "Software Engineer",
   email: "ibrahimclash707@gmail.com",
-  linkedin: "https://www.linkedin.com/in/muhammad-ibrahim-0b8083287/", // Placeholder
-  github: "https://github.com/mIBRAHIM707", // Placeholder
-  leetcode: "https://leetcode.com/u/m-ibrahim0077/", // Placeholder
-  resumeUrl: "/resume_muhammad_ibrahim.pdf", // Placeholder PDF
-  heroStatement: "Third-year Software Engineering student at GIKI with Dean's List honors, combining strong algorithmic problem-solving skills (ICPC top 12 nationally) with practical development experience in game development, full-stack web applications, and machine learning. Eager to contribute to innovative projects and grow as a software engineer.",
+  linkedin: "https://www.linkedin.com/in/ibrahim707/",
+  github: "https://github.com/mIBRAHIM707", 
+  leetcode: "https://leetcode.com/u/m-ibrahim0077/", 
+  resumeUrl: "/resume_muhammad_ibrahim.pdf", 
+  heroStatement: "Driven by performance. Architecting scalable environments and high-precision machine learning models. I combine competitive algorithmic rigor (ICPC National Top 12) with modern edge computing to ship resilient, state-of-the-art software.",
 };
 
 export type Skill = {
@@ -25,67 +25,58 @@ export type SkillCategory = {
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: "Programming Languages",
+    name: "Languages & Core",
     icon: Code,
     skills: [
-      { name: "C/C++" },
-      { name: "Python" },
-      { name: "JavaScript/TypeScript" },
+      { name: "C++ (STL, Memory)" },
+      { name: "Python 3" },
+      { name: "TypeScript" },
       { name: "C#" },
-      { name: "HTML/CSS" },
+      { name: "SQL" },
     ],
   },
   {
-    name: "Web Development",
+    name: "Web & Edge",
     icon: Webhook,
     skills: [
+      { name: "Next.js 14" },
       { name: "React" },
-      { name: "Next.js" },
       { name: "Node.js" },
-      { name: "Express.js" },
-      { name: "Flask" },
-      { name: "MongoDB" },
-      { name: "Tailwind CSS" },
-      { name: "Vite" },
-    ],
-  },
-  {
-    name: "Game Development",
-    icon: Gamepad2,
-    skills: [
-      { name: "Unity" },
-      { name: "SFML" },
-      { name: "Pygame" },
-    ],
-  },
-  {
-    name: "Database/Cloud",
-    icon: Database,
-    skills: [
-      { name: "Postgres SQL" },
-      { name: "MongoDB" },
-      { name: "Firebase" },
-      { name: "Google Cloud" },
+      { name: "Express" },
+      { name: "Supabase" },
+      { name: "PostGIS" },
     ],
   },
   {
     name: "Machine Learning",
     icon: Cpu,
     skills: [
+      { name: "Data Pipelines" },
       { name: "Scikit-learn" },
-      { name: "Pandas" },
-      { name: "NumPy" },
-      { name: "TensorFlow (Keras basics)" },
+      { name: "TensorFlow" },
+      { name: "Pandas/NumPy" },
+      { name: "Isolation Forests" },
     ],
   },
   {
-    name: "Problem Solving & Tools",
+    name: "Architecture & Config",
+    icon: Layers,
+    skills: [
+      { name: "Microservices" },
+      { name: "Docker" },
+      { name: "REST/GraphQL" },
+      { name: "Git Workflows" },
+      { name: "Linux" },
+    ],
+  },
+  {
+    name: "Algorithms & Logic",
     icon: Brain,
     skills: [
-      { name: "Data Structures & Algorithms" },
-      { name: "Git & GitHub" },
-      { name: "VS Code" },
-      { name: "Linux" },
+      { name: "Advanced Data Structures" },
+      { name: "Dynamic Programming" },
+      { name: "Object Pooling" },
+      { name: "Lexical Analysis" },
     ],
   },
 ];
@@ -106,48 +97,47 @@ export type Project = {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "O-Level Pseudocode Compiler",
-    technologies: ["Python", "Flask"],
-    description: "Engineered a compiler translating pseudocode into step-by-step Python logic and Implemented tokenizer, parser, semantic analyzer, and code generator components",
-    role: "Lead Developer",
-    features: ["Lexical Analysis", "Syntax Parsing", "Code Execution", "Error Highlighting"],
-    imageUrl: "/pseudo.ico",
-    imageHint: "compiler code",
-    githubUrl: "https://github.com/mIBRAHIM707/Compiler-for-O-level-Pseudocode",
-    liveDemoUrl: "#", // Placeholder
+    title: "CrowdServe",
+    technologies: ["Next.js", "Supabase", "PostGIS"],
+    description: "Architected a real-time, location-based crowdsourcing ecosystem. Engineered via robust Postgres triggers and validated PMF with 50+ localized active users within the first two weeks of launch.",
+    role: "Full-Stack Engineer",
+    features: ["Geospatial Querying", "Real-time subscriptions", "Role-Based Access", "High-conversion UI"],
+    imageUrl: "/crowdserve-placeholder.png",
+    imageHint: "dashboard interface",
+    githubUrl: "https://github.com/mIBRAHIM707/CrowdServe",
+    liveDemoUrl: "https://crowdserve.vercel.app", 
   },
-  
   {
     id: "2",
-    title: "Spotify Album Finder",
-    technologies: ["Node.js", "Spotify Web API", "React"],
-    description: "A web application that integrates with the Spotify API to allow users to search for albums, view details, and manage a personalized list of favorite albums.",
-    role: "Backend Developer",
-    features: ["Search for artists and albums", "View detailed artist information including popularity metrics", "Browse albums and track listings", "RESTful Endpoints"],
-    imageUrl: "/spotify.png",
-    imageHint: "music api",
-    githubUrl: "https://github.com/mIBRAHIM707/Album-Finder-with-Spotify-API",
+    title: "Pseudocode Compiler & Web IDE",
+    technologies: ["Python", "Lex/Yacc", "React"],
+    description: "Designed a deterministic Lexer and Parser capable of bridging abstract structural logic into execution-ready Python. Integrated a real-time browser IDE to drastically cut learning curves for syntax.",
+    role: "Core Developer",
+    features: ["Abstract Syntax Tree Parsing", "Tokenization Engine", "Browser Interpreter Execution", "Strict Typed AST"],
+    imageUrl: "/pseudo.ico",
+    imageHint: "compiler logic",
+    githubUrl: "https://github.com/mIBRAHIM707/Compiler-for-O-level-Pseudocode",
   },
   {
     id: "3",
-    title: "Sehat Saathi",
-    technologies: ["React", "Django", "Python", "Postgres SQL", "JS"],
-    description: "A Hospital Management System develeped for my university GIKI which manages hospital operations including patient records, appointments, and staff information. Focused on robust data handling and user-friendly interface.",
-    role: "Full-Stack Developer",
-    features: ["Patient Management", "Appointment Scheduling", "Doctor Management", "Billing", "Admin records"],
-    imageUrl: "/hms.png",
-    imageHint: "hospital system",
-    githubUrl: "https://github.com/mIBRAHIM707/Sehat-Saathi",
+    title: "Zero-Dependency Neural Network",
+    technologies: ["Python", "NumPy", "Math"],
+    description: "Built a fully functional deep learning framework utilizing contiguous mathematical models. Wrote the forward/back propagation and gradient descent algorithms precisely from scratch.",
+    role: "Machine Learning Researcher",
+    features: ["Matrix Calculations", "Backpropagation Algebra", "Custom Loss Functions", "90%+ MNIST Validation"],
+    imageUrl: "/neural-placeholder.png",
+    imageHint: "mathematics graphs",
+    githubUrl: "https://github.com/mIBRAHIM707/neural-network-using-only-math",
   },
   {
     id: "4",
-    title: "Game Development Internship",
-    technologies: ["Unity", "C#"],
-    description: "Developed a simple mobile game during an internship. Worked on gameplay mechanics, UI elements, and bug fixing.",
-    role: "Game Developer Intern",
-    features: ["Gameplay Mechanics", "UI Implementation", "Performance Optimization"],
-    imageUrl: "/lab.png",
-    imageHint: "game development",
+    title: "Banking Anomaly Framework",
+    technologies: ["Pandas", "Scikit", "Power BI"],
+    description: "Formulated highly precise Random Forest and Isolation Forest models explicitly to unmask underlying banking transactional anomalies, achieving an 85% validation precision hit rate.",
+    role: "ML Operations / Internship",
+    features: ["Fraud Detection Algorithm", "Pipeline Automation", "Feature Engineering", "Data Modeling"],
+    imageUrl: "/analytics-placeholder.png",
+    imageHint: "data visualization",
     githubUrl: "",
   },
 ];
@@ -163,38 +153,31 @@ export type Achievement = {
 export const achievements: Achievement[] = [
   {
     id: "1",
-    title: "2nd Place in Google Developer Student Club Hackathon",
-    description: "Won 2nd place in a hackathon organized by Google Developer Student Club GIKI for a Quantum Computing project.",
+    title: "ICPC National Top 12",
+    description: "Ranked amongst the nation's elite algorithmic problem solvers in the rigorous ICPC Regional Programming Contest.",
+    icon: Brain,
+    year: "2024"
+  },
+  {
+    id: "2",
+    title: "2nd Place GDGOC x BAVE",
+    description: "Led the architectural blueprint for a 4-person team, out-engineering 10+ competitor teams under strict time constraints.",
     icon: Sparkles,
     year: "2025"
   },
   {
-    id: "2",
-    title: "Microsoft Club Hackathon 3rd Place",
-    description: "Secured 3rd place in a hackathon hosted by Microsoft Club GIKI for an innovative project.",
-    icon: Sparkles,
-    year: "2024"
-  },
-  {
     id: "3",
-    title: "ICPC National Top 12 Prelim",
-    description: "Achieved Top 12 position nationally in the International Collegiate Programming Contest Prelimenary Round.",
+    title: "3rd Place Microsoft Hack",
+    description: "Achieved podium finish by rapidly prototyping and scaling complex infrastructural requirements.",
     icon: Target,
     year: "2024"
   },
   {
     id: "4",
-    title: "Dean's List Honors",
-    description: "Awarded Dean's List for academic excellence at GIKI.",
+    title: "Dean's List Designation",
+    description: "Maintained rigorous academic excellence throughout the software engineering program.",
     icon: Award,
-    year: "4th Semester"
-  },
-  {
-    id: "5",
-    title: "50% Merit Scholarship",
-    description: "Awarded a 50% scholarship.",
-    icon: School,
-    year: "Ongoing"
+    year: "2023 - Present"
   },
 ];
 
@@ -210,18 +193,10 @@ export type Education = {
 export const education: Education[] = [
   {
     id: "1",
-    institution: "Ghulam Ishaq Khan Institute of Engineering Sciences and Technology (GIKI)",
-    degree: "Bachelor of Science in Software Engineering",
-    years: "2023 - Present",
-    description: "Currently in the third year, focusing on AI, web development, and competitive programming.",
-    icon: School,
-  },
-  {
-    id: "2",
-    institution: "Lahore Grammar School (LGS)",
-    degree: "A-Levels & O-Levels",
-    years: "Completed 2023",
-    description: "Got a 100% scholarship award and achieved strong academic results, fostering a foundation in A-Level and O-level subjects.",
+    institution: "Ghulam Ishaq Khan Institute (GIKI)",
+    degree: "Bachelor of Software Engineering (CGPA 3.34)",
+    years: "2023 - 2027",
+    description: "Current focus spans distributed system infrastructures, deep learning matrices, and competitive algorithmic paradigms.",
     icon: School,
   },
 ];
@@ -232,3 +207,4 @@ export const socialLinks = [
   { name: 'LeetCode', url: personalInfo.leetcode, icon: Code },
   { name: 'Email', url: `mailto:${personalInfo.email}`, icon: Mail },
 ];
+

@@ -4,17 +4,11 @@ import { useFormStatus } from "react-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { submitContactForm, type ContactFormState } from "@/lib/actions";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { Terminal } from "lucide-react";
 import { useEffect, useActionState } from "react";
 import { useToast } from "@/hooks/use-toast";
-
+import { Send, Loader2 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -30,12 +24,45 @@ const initialState: ContactFormState = {
   success: false,
 };
 
+// Shared field wrapper styles
+const fieldClass = "flex flex-col gap-1.5";
+const labelClass = "text-xs font-mono text-muted-foreground/60 uppercase tracking-widest";
+const inputClass = cn(
+  "w-full px-4 py-3 rounded-xl text-sm font-light text-foreground",
+  "bg-muted/40 border border-border/50",
+  "placeholder:text-muted-foreground/30",
+  "focus:outline-none focus:ring-1 focus:ring-ring/50 focus:border-border/80",
+  "transition-all duration-200"
+);
+const errorClass = "text-xs text-destructive/80 font-light mt-0.5";
+
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full">
-      {pending ? "Sending..." : "Send Message"}
-    </Button>
+    <button
+      type="submit"
+      disabled={pending}
+      className={cn(
+        "w-full inline-flex items-center justify-center gap-2",
+        "px-6 py-3.5 rounded-xl text-sm font-semibold",
+        "bg-foreground text-background",
+        "hover:bg-foreground/85 hover:scale-[1.01] active:scale-[0.99]",
+        "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100",
+        "transition-all duration-200 shadow-lg shadow-black/20 cursor-pointer"
+      )}
+    >
+      {pending ? (
+        <>
+          <Loader2 className="h-4 w-4 animate-spin" />
+          Sending...
+        </>
+      ) : (
+        <>
+          Send Message
+          <Send className="h-4 w-4" />
+        </>
+      )}
+    </button>
   );
 }
 
@@ -45,71 +72,89 @@ export function ContactForm() {
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    },
+    defaultValues: { name: "", email: "", subject: "", message: "" },
   });
 
   useEffect(() => {
     if (state.message) {
       if (state.success) {
-        toast({
-          title: "Success!",
-          description: state.message,
-        });
-        form.reset(); // Reset form on success
+        toast({ title: "Message sent!", description: state.message });
+        form.reset();
       } else {
-        toast({
-          variant: "destructive",
-          title: "Error",
-          description: state.message,
-        });
+        toast({ variant: "destructive", title: "Error", description: state.message });
       }
     }
   }, [state, toast, form]);
 
-
   return (
-    <form action={formAction} className="space-y-6">
-      <div>
-        <Label htmlFor="name">Name</Label>
-        <Input id="name" name="name" placeholder="Your Name" required />
-        {state.errors?.name && (
-          <p className="text-sm font-medium text-destructive mt-1">
-            {state.errors.name[0]}
-          </p>
-        )}
+    <form action={formAction} className="flex flex-col gap-5">
+      {/* Name + Email row */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className={fieldClass}>
+          <label htmlFor="name" className={labelClass}>Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Your name"
+            required
+            className={inputClass}
+          />
+          {state.errors?.name && (
+            <p className={errorClass}>{state.errors.name[0]}</p>
+          )}
+        </div>
+        <div className={fieldClass}>
+          <label htmlFor="email" className={labelClass}>Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            required
+            className={inputClass}
+          />
+          {state.errors?.email && (
+            <p className={errorClass}>{state.errors.email[0]}</p>
+          )}
+        </div>
       </div>
-      <div>
-        <Label htmlFor="email">Email</Label>
-        <Input id="email" name="email" type="email" placeholder="your.email@example.com" required />
-         {state.errors?.email && (
-          <p className="text-sm font-medium text-destructive mt-1">
-            {state.errors.email[0]}
-          </p>
-        )}
-      </div>
-      <div>
-        <Label htmlFor="subject">Subject</Label>
-        <Input id="subject" name="subject" placeholder="Regarding your portfolio" required />
+
+      {/* Subject */}
+      <div className={fieldClass}>
+        <label htmlFor="subject" className={labelClass}>Subject</label>
+        <input
+          id="subject"
+          name="subject"
+          type="text"
+          placeholder="What's this about?"
+          required
+          className={inputClass}
+        />
         {state.errors?.subject && (
-          <p className="text-sm font-medium text-destructive mt-1">
-            {state.errors.subject[0]}
-          </p>
+          <p className={errorClass}>{state.errors.subject[0]}</p>
         )}
       </div>
-      <div>
-        <Label htmlFor="message">Message</Label>
-        <Textarea id="message" name="message" placeholder="Your message..." rows={5} required />
+
+      {/* Message */}
+      <div className={fieldClass}>
+        <label htmlFor="message" className={labelClass}>Message</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Tell me about your project, idea, or opportunity..."
+          rows={6}
+          required
+          className={cn(inputClass, "resize-none")}
+        />
         {state.errors?.message && (
-          <p className="text-sm font-medium text-destructive mt-1">
-            {state.errors.message[0]}
-          </p>
+          <p className={errorClass}>{state.errors.message[0]}</p>
         )}
       </div>
+
+      {/* Divider */}
+      <div className="h-px bg-border/30" />
+
       <SubmitButton />
     </form>
   );

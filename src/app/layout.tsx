@@ -1,31 +1,47 @@
 import type { Metadata } from 'next';
-import { GeistSans } from 'geist/font/sans';
-// import { GeistMono } from 'geist/font/mono'; // Mono font can be added if specific mono sections are needed
+import { Archivo, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/layout/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 
+const archivo = Archivo({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-archivo',
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-space-grotesk',
+  weight: ['300', '400', '500', '600', '700'],
+});
+
 export const metadata: Metadata = {
-  title: 'Muhammad Ibrahim Portfolio',
-  description: 'Personal portfolio of Muhammad Ibrahim, a Software Engineering student showcasing projects, skills, and achievements.',
-  icons: {
-    icon: '/favicon.ico',
+  title: 'Muhammad Ibrahim — Software Engineer',
+  description:
+    'Portfolio of Muhammad Ibrahim — an award-winning Software Engineering student building scalable systems, intelligent models, and fluid interfaces.',
+  icons: { icon: '/favicon.ico' },
+  openGraph: {
+    title: 'Muhammad Ibrahim — Software Engineer',
+    description:
+      'Award-winning developer specializing in scalable systems, intelligent models, and fluid interfaces.',
+    type: 'website',
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${GeistSans.className} antialiased min-h-screen flex flex-col`}
+        className={`${archivo.variable} ${spaceGrotesk.variable} antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

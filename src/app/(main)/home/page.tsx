@@ -1,199 +1,424 @@
-
-import Link from 'next/link';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { personalInfo, achievements, projects } from '@/lib/data';
-import { ArrowRight, Download, Send, Award as AwardIcon, Code, Users, Briefcase, Eye, Sparkles, Atom } from 'lucide-react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import Link from "next/link";
+import Image from "next/image";
+import {
+  ArrowRight,
+  Download,
+  Send,
+  Code2,
+  BrainCircuit,
+  Gamepad2,
+  ChevronRight,
+  Terminal,
+  Layers3,
+  Sparkles,
+  ExternalLink,
+} from "lucide-react";
+import { personalInfo, achievements, projects } from "@/lib/data";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function HomePage() {
   const featuredProjects = projects.slice(0, 3);
-  const keyAchievements = achievements.slice(0, 2); // Show 2 key achievements
 
   return (
-    <div className="space-y-20 md:space-y-28 py-8">
-      {/* Hero Section */}
-      <section className="text-center pt-12 pb-16 md:pt-20 md:pb-24">
-        <div className="container mx-auto px-4">
-              <Avatar className="w-48 h-48 md:w-[300px] md:h-[300px] mx-auto mb-8 border-4 border-primary shadow-xl">
-            <AvatarImage src="/pik400x400.jpg" alt={personalInfo.name} data-ai-hint="profile portrait"/>
-            <AvatarFallback>{personalInfo.name.substring(0, 2).toUpperCase()}</AvatarFallback>
+    <div className="flex flex-col items-center w-full overflow-x-hidden">
+      {/* ── Background: dot grid + spotlight glow ── */}
+      <div className="fixed inset-0 -z-10 bg-background">
+        <div className="absolute inset-0 bg-dot-grid opacity-100" />
+        {/* Ambient top glow */}
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center top, hsl(212 95% 68% / 0.06) 0%, transparent 70%)",
+          }}
+        />
+        {/* Bottom accent */}
+        <div
+          className="absolute bottom-0 right-0 w-[600px] h-[600px] pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at bottom right, hsl(265 89% 70% / 0.04) 0%, transparent 60%)",
+          }}
+        />
+      </div>
+
+      {/* ═══════════════════════════════════════════ */}
+      {/*  HERO SECTION                              */}
+      {/* ═══════════════════════════════════════════ */}
+      <section className="relative w-full max-w-5xl mx-auto px-6 pt-40 pb-28 md:pt-52 md:pb-36">
+        {/* Availability badge */}
+        <div
+          className="status-badge mb-10 opacity-0 animate-fade-in-up"
+          style={{ animationDelay: "0ms", animationFillMode: "forwards" }}
+        >
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500" />
+          </span>
+          Currently open to opportunities
+        </div>
+
+        {/* Avatar */}
+        <div
+          className="mb-9 opacity-0 animate-fade-in-up"
+          style={{ animationDelay: "80ms", animationFillMode: "forwards" }}
+        >
+          <Avatar className="w-16 h-16 border-2 border-border/60 shadow-lg">
+            <AvatarImage
+              src="/pik400x400.jpg"
+              alt={personalInfo.name}
+              className="object-cover"
+            />
+            <AvatarFallback className="text-sm font-display font-bold bg-muted">
+              {personalInfo.name
+                .split(" ")
+                .map((n) => n[0])
+                .join("")
+                .toUpperCase()}
+            </AvatarFallback>
           </Avatar>
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
-            Hey, I'm {personalInfo.name.split(" ")[1]} 👋 {/* Or [1] if you prefer last name */}
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            A {personalInfo.title} at GIKI & award winning hackathon competitor (Microsoft Club 3rd, GDSC 2nd), driven to build impactful solutions across game development, full-stack web, and machine learning.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button size="lg" asChild className="shadow-lg hover:shadow-primary/50 transition-shadow">
-              <Link href="/projects">
-                <Eye className="mr-2 h-5 w-5" /> View My Work
-              </Link>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <Link href={personalInfo.resumeUrl} target="_blank" download>
-                <Download className="mr-2 h-5 w-5" /> Download Resume
-              </Link>
-            </Button>
-          </div>
+        </div>
+
+        {/* Main headline */}
+        <h1
+          className="font-display font-black tracking-tighter mb-7 opacity-0 animate-fade-in-up text-balance"
+          style={{
+            fontSize: "clamp(2.8rem, 7vw, 6rem)",
+            lineHeight: 1.02,
+            animationDelay: "160ms",
+            animationFillMode: "forwards",
+          }}
+        >
+          <span className="text-foreground">Engineering</span>
+          <br />
+          <span
+            className="bg-clip-text text-transparent"
+            style={{
+              backgroundImage:
+                "linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--foreground) / 0.35) 100%)",
+            }}
+          >
+            the future.
+          </span>
+        </h1>
+
+        {/* Sub-headline */}
+        <p
+          className="text-lg md:text-xl text-muted-foreground mb-11 max-w-xl font-light leading-relaxed opacity-0 animate-fade-in-up"
+          style={{ animationDelay: "240ms", animationFillMode: "forwards" }}
+        >
+          Hey, I&apos;m{" "}
+          <span className="text-foreground font-medium">
+            {personalInfo.name.split(" ").slice(-1)[0]}
+          </span>
+          . An award-winning engineer specializing in scalable architectures,
+          intelligent anomaly models, and fluid data interfaces.
+        </p>
+
+        {/* CTAs */}
+        <div
+          className="flex flex-col sm:flex-row gap-3 opacity-0 animate-fade-in-up"
+          style={{ animationDelay: "320ms", animationFillMode: "forwards" }}
+        >
+          <Link
+            href="/projects"
+            className="group inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-foreground text-background text-sm font-semibold hover:bg-foreground/85 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-lg shadow-black/20 cursor-pointer"
+          >
+            Explore Work
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+
+          <Link
+            href={personalInfo.resumeUrl}
+            target="_blank"
+            download
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-border/60 bg-card/50 text-foreground text-sm font-medium hover:bg-card hover:border-border/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer"
+          >
+            <Download className="h-4 w-4" />
+            Download Résumé
+          </Link>
+        </div>
+
+        {/* Scroll hint */}
+        <div
+          className="absolute bottom-8 left-6 flex items-center gap-2 text-xs text-muted-foreground/40 font-mono tracking-widest uppercase opacity-0 animate-fade-in"
+          style={{ animationDelay: "800ms", animationFillMode: "forwards" }}
+        >
+          <div className="w-4 h-[1px] bg-muted-foreground/30" />
+          Scroll
         </div>
       </section>
 
-      {/* About Me Snippet */}
-      <section className="py-12 md:py-16 bg-card text-card-foreground rounded-xl shadow-lg">
-        <div className="container mx-auto px-4 grid md:grid-cols-3 gap-8 items-center">
-          <div className="md:col-span-2">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">A Bit About Me</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              Hello! I'm Muhammad Ibrahim. My journey into Software Engineering is fueled by the drive to transform 
-              innovative ideas into tangible, impactful solutions. This isn't just a statement - it's a practice, 
-              proven through successes like achieving <b>3rd place at the Microsoft Club GIKI Hackathon and 2nd place at 
-              the GDGoC GIKI Hackathon</b>, and brought to life through hands-on development in game design, full stack web 
-              applications, and machine learning. I'm energized by continuous learning and thrive in collaborative 
-              environments where creative problem solving leads to impactful software.
-            </p>
-            <Button variant="secondary" asChild>
-              <Link href="/about">
-                Learn More About Me <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
-          <div className="hidden md:flex justify-center items-center">
-             <Image 
-                src="/400.png" // Replace with a meaningful image
-                alt="Abstract representation of coding"
-                width={300}
-                height={300}
-                className="rounded-lg shadow-2xl object-cover"
-                data-ai-hint="abstract technology"
-              />
-          </div>
-        </div>
-      </section>
-      
-      {/* Key Skills Section */}
-      <section className="py-12 md:py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">What I Do</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-              {
-                title: "Web Development",
-                description: "Crafting seamless, user-centric web experiences with cutting-edge frameworks (like Next.js, React) to deliver high-performance, modern applications.",
-                icon: Code // Replace with your actual icon component
-              },
-              {
-                title: "Problem Solving",
-                description: "Applying proven algorithmic expertise, sharpened by hackathon successes, to dissect complex challenges and engineer efficient, innovative solutions.",
-                icon: Sparkles // Replace with your actual icon component
-              },
-              {
-                title: "Machine Learning",
-                description: "Leveraging data to build and deploy intelligent models (using TensorFlow, scikit-learn, etc.) that drive insights, automation, and smarter application features.",
-                icon: Atom // Replace with your actual icon component (or another suitable ML icon)
-              }
-            ].map(skill => (
-            <Card key={skill.title} className="text-center shadow-md hover:shadow-xl transition-shadow duration-300 bg-card">
-              <CardHeader>
-                <div className="mx-auto bg-primary/20 text-primary rounded-full p-4 w-fit mb-4">
-                  <skill.icon className="h-10 w-10" />
-                </div>
-                <CardTitle className="text-2xl">{skill.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{skill.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
+      {/* ── Divider ── */}
+      <div className="section-divider w-full max-w-5xl mx-auto" />
 
-      {/* Featured Projects Section */}
-      <section className="py-12 md:py-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Featured Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProjects.map((project) => (
-            <Card key={project.id} className="flex flex-col shadow-lg hover:shadow-2xl transition-shadow duration-300 overflow-hidden bg-card">
-              <Image
-                src={project.imageUrl}
-                alt={project.title}
-                width={600}
-                height={400}
-                className="rounded-t-lg object-cover aspect-[3/2]"
-                data-ai-hint={project.imageHint}
-              />
-              <CardHeader>
-                <CardTitle className="text-xl group-hover:text-primary transition-colors">{project.title}</CardTitle>
-                <CardDescription className="text-sm text-muted-foreground pt-1">{project.technologies.join(' • ')}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <p className="text-sm line-clamp-3 text-foreground/80">{project.description}</p>
-              </CardContent>
-              <CardFooter>
-                <Button asChild variant="link" className="p-0 text-base">
-                  <Link href={`/projects#${project.id}`}>
-                    View Details <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+      {/* ═══════════════════════════════════════════ */}
+      {/*  EXPERTISE BENTO GRID                      */}
+      {/* ═══════════════════════════════════════════ */}
+      <section className="w-full max-w-5xl mx-auto px-6 py-20 md:py-28">
+        {/* Section label */}
+        <div className="flex items-center gap-3 mb-12">
+          <div className="h-px flex-1 max-w-[48px] bg-border/60" />
+          <span className="text-xs font-mono text-muted-foreground/60 uppercase tracking-[0.2em]">
+            Expertise
+          </span>
         </div>
-        <div className="text-center mt-12">
-          <Button asChild variant="default" size="lg" className="shadow-md hover:shadow-lg transition-shadow">
-            <Link href="/projects">Explore All Projects</Link>
-          </Button>
-        </div>
-      </section>
 
-      {/* Key Achievements Section */}
-      {keyAchievements.length > 0 && (
-        <section className="py-12 md:py-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Highlights</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {keyAchievements.map((achievement) => {
-              const Icon = achievement.icon || AwardIcon;
-              return (
-                <Card key={achievement.id} className="shadow-md hover:shadow-xl transition-shadow duration-300 bg-card">
-                  <CardHeader className="flex flex-row items-center gap-4">
-                    <div className="bg-primary/20 text-primary rounded-lg p-3">
-                      <Icon className="h-8 w-8" />
-                    </div>
-                    <div>
-                      <CardTitle className="text-xl">{achievement.title}</CardTitle>
-                      {achievement.year && <p className="text-sm text-muted-foreground">{achievement.year}</p>}
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground">{achievement.description}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-           <div className="text-center mt-12">
-              <Button asChild variant="outline" size="lg">
-                <Link href="/about#achievements">See All Achievements</Link>
-              </Button>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[minmax(200px,auto)]">
+          {/* ── Card 1: Main philosophy (2×2) ── */}
+          <div className="md:col-span-2 md:row-span-2 relative rounded-2xl border border-border/50 bg-card overflow-hidden group card-lift cursor-default">
+            {/* Grain overlay */}
+            <div className="absolute inset-0 bg-dot-grid opacity-30 pointer-events-none" />
+            {/* Hover glow */}
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse at top left, hsl(212 95% 68% / 0.07) 0%, transparent 60%)",
+              }}
+            />
+
+            <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-end">
+              <Terminal className="h-7 w-7 mb-8 text-muted-foreground/40 group-hover:text-muted-foreground/70 transition-colors duration-300" />
+              <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground text-balance mb-5 tracking-tighter leading-[1.1]">
+                Beyond syntax —{" "}
+                <span className="text-muted-foreground">
+                  architecting scale.
+                </span>
+              </h2>
+              <p className="text-muted-foreground text-base leading-relaxed max-w-lg font-light">
+                My foundation in competitive engineering — ICPC National Top 12,
+                GDGoC 2nd — forged a discipline for optimizing computational
+                bottlenecks securely. I don't just write code; I architect resilient models.
+              </p>
             </div>
-        </section>
-      )}
+          </div>
 
-      {/* Contact CTA */}
-      <section className="py-16 md:py-24 text-center bg-gradient-to-r from-primary/80 to-accent/80 dark:from-primary/50 dark:to-accent/50 rounded-xl shadow-xl">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-6">
-            Let&apos;s Create Something Amazing!
-          </h2>
-          <p className="text-lg text-primary-foreground/90 mb-8 max-w-xl mx-auto">
-            Have a project in mind, a question, or just want to connect? I&apos;d love to hear from you.
-          </p>
-          <Button size="lg" variant="secondary" asChild className="text-lg py-6 px-10 shadow-lg hover:shadow-xl transition-shadow">
-            <Link href="/contact">
-              Get In Touch <Send className="ml-2 h-5 w-5" />
+          {/* ── Card 2: Systems & Web ── */}
+          <div className="relative rounded-2xl border border-border/50 bg-card overflow-hidden group card-lift p-7 flex flex-col justify-between cursor-default">
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse at top right, hsl(212 95% 68% / 0.08) 0%, transparent 60%)",
+              }}
+            />
+            <Code2 className="h-6 w-6 text-blue-400/60 group-hover:text-blue-400 transition-colors duration-300 relative z-10" />
+            <div className="relative z-10">
+              <h3 className="font-display font-semibold text-lg text-foreground tracking-tight mb-2">
+                Systems &amp; Web
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed font-light">
+                Full-stack edge computing with Next.js, distributed databases,
+                and resilient microservices architectures.
+              </p>
+            </div>
+          </div>
+
+          {/* ── Card 3: Machine Learning ── */}
+          <div className="relative rounded-2xl border border-border/50 bg-card overflow-hidden group card-lift p-7 flex flex-col justify-between cursor-default">
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse at top right, hsl(265 89% 70% / 0.07) 0%, transparent 60%)",
+              }}
+            />
+            <BrainCircuit className="h-6 w-6 text-purple-400/60 group-hover:text-purple-400 transition-colors duration-300 relative z-10" />
+            <div className="relative z-10">
+              <h3 className="font-display font-semibold text-lg text-foreground tracking-tight mb-2">
+                Machine Learning
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed font-light">
+                High-precision anomaly detection frameworks and predictive data pipelines engineered into secure ecosystems.
+              </p>
+            </div>
+          </div>
+
+          {/* ── Card 4: Game Dev (full width) ── */}
+          <div className="md:col-span-3 relative rounded-2xl border border-border/50 bg-card overflow-hidden group card-lift p-7 md:p-9 flex flex-col md:flex-row items-start md:items-center gap-6 justify-between cursor-default">
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse at top right, hsl(142 71% 45% / 0.05) 0%, transparent 60%)",
+              }}
+            />
+
+            <div className="flex-1 relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <Terminal className="h-5 w-5 text-green-400/70 group-hover:text-green-400 transition-colors" />
+                <span className="text-xs font-mono text-muted-foreground/50 uppercase tracking-[0.2em]">
+                  Computational Logic
+                </span>
+              </div>
+              <h3 className="font-display font-semibold text-2xl md:text-3xl text-foreground tracking-tighter mb-3">
+                Algorithmic Integrity
+              </h3>
+              <p className="text-muted-foreground leading-relaxed max-w-2xl font-light text-base">
+                From constructing deterministic compilers to writing zero-dependency neural frameworks natively. My foundation ensures optimal time/space complexity and resource pooling for high-performance constraints.
+              </p>
+            </div>
+
+            <div className="hidden md:flex shrink-0 w-24 h-24 items-center justify-center border border-border/30 bg-muted/30 rounded-2xl group-hover:rotate-3 transition-all duration-500 relative z-10">
+              <Layers3 className="h-10 w-10 text-foreground/20 group-hover:text-green-400/60 transition-colors duration-500" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Divider ── */}
+      <div className="section-divider w-full max-w-5xl mx-auto" />
+
+      {/* ═══════════════════════════════════════════ */}
+      {/*  SELECTED WORK                             */}
+      {/* ═══════════════════════════════════════════ */}
+      <section className="w-full max-w-5xl mx-auto px-6 py-20 md:py-28">
+        {/* Header row */}
+        <div className="flex items-end justify-between mb-14">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-px flex-1 max-w-[48px] bg-border/60" />
+              <span className="text-xs font-mono text-muted-foreground/60 uppercase tracking-[0.2em]">
+                Selected Work
+              </span>
+            </div>
+            <h2 className="font-display font-bold text-4xl md:text-5xl tracking-tighter text-foreground">
+              Projects
+            </h2>
+          </div>
+          <Link
+            href="/projects"
+            className="hidden sm:inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors group cursor-pointer"
+          >
+            All Projects
+            <ChevronRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
+          </Link>
+        </div>
+
+        {/* Project list — Linear-style rows alternating with cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+          {featuredProjects.map((project, i) => (
+            <Link
+              href={`/projects#${project.id}`}
+              key={project.id}
+              className={`group relative rounded-2xl border border-border/50 bg-card overflow-hidden card-lift cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-ring ${
+                i === 0 ? "md:col-span-2" : ""
+              }`}
+            >
+              {/* Image */}
+              <div
+                className={`relative overflow-hidden ${
+                  i === 0
+                    ? "aspect-[21/9]"
+                    : "aspect-[16/10]"
+                }`}
+              >
+                <Image
+                  src={project.imageUrl}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  data-ai-hint={project.imageHint}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Hover arrow */}
+                <div className="absolute top-4 right-4 w-8 h-8 rounded-lg bg-background/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 -translate-y-2 group-hover:translate-x-0 group-hover:translate-y-0">
+                  <ExternalLink className="h-3.5 w-3.5 text-foreground" />
+                </div>
+              </div>
+
+              {/* Info */}
+              <div className="p-6 md:p-7">
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <h3 className="font-display font-semibold text-xl tracking-tight text-foreground group-hover:text-foreground/80 transition-colors">
+                    {project.title}
+                  </h3>
+                  <span className="text-xs font-mono text-muted-foreground/50 pt-1 shrink-0">
+                    0{i + 1}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {project.technologies.slice(0, 4).map((tech) => (
+                    <span key={tech} className="tag">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed font-light">
+                  {project.description}
+                </p>
+              </div>
             </Link>
-          </Button>
+          ))}
+        </div>
+
+        {/* Mobile all projects */}
+        <div className="mt-10 text-center sm:hidden">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border/50 text-sm font-medium text-muted-foreground hover:text-foreground hover:border-border/80 transition-all duration-200 cursor-pointer"
+          >
+            All Projects
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </section>
+
+      {/* ── Divider ── */}
+      <div className="section-divider w-full max-w-5xl mx-auto" />
+
+      {/* ═══════════════════════════════════════════ */}
+      {/*  CTA / CONTACT SECTION                     */}
+      {/* ═══════════════════════════════════════════ */}
+      <section className="relative w-full max-w-5xl mx-auto px-6 py-28 md:py-36 text-center">
+        {/* Background glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, hsl(212 95% 68% / 0.05) 0%, transparent 65%)",
+          }}
+        />
+
+        {/* Sparkle icon */}
+        <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl border border-border/50 bg-card mb-8 mx-auto">
+          <Sparkles className="h-5 w-5 text-muted-foreground/60" />
+        </div>
+
+        <h2 className="font-display font-black tracking-tighter mb-6 text-balance relative z-10"
+          style={{
+            fontSize: "clamp(2.4rem, 5.5vw, 5rem)",
+            lineHeight: 1.05,
+          }}
+        >
+          Let&apos;s build something
+          <br />
+          <span className="text-muted-foreground">extraordinary.</span>
+        </h2>
+
+        <p className="text-muted-foreground text-lg font-light mb-11 max-w-md mx-auto leading-relaxed relative z-10">
+          Have a project in mind? I&apos;d love to hear about it. Let&apos;s
+          create something remarkable together.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-3 justify-center relative z-10">
+          <Link
+            href="/contact"
+            className="group inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-foreground text-background text-sm font-semibold hover:bg-foreground/85 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-xl shadow-black/20 cursor-pointer"
+          >
+            Get in touch
+            <Send className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </Link>
+          <Link
+            href="/projects"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl border border-border/50 text-sm font-medium text-muted-foreground hover:text-foreground hover:border-border/80 hover:bg-card/50 transition-all duration-200 cursor-pointer"
+          >
+            View my work
+          </Link>
         </div>
       </section>
     </div>
