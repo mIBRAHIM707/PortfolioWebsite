@@ -127,7 +127,7 @@ export default function AboutPage() {
                   My foundational methodology was forged in high-stakes algorithmic environments—most notably securing an ICPC National Top 12 standing. This background drilled into me a rigid discipline for optimizing bottlenecks iteratively, securely, and completely autonomously.
                 </p>
                 <p>
-                  From engineering custom deterministic compilers locally, mapping precise banking anomalies via Isolation Forests, to managing fully distributed full-stack ecosystems, I bring an unwavering execution standard.
+                  From engineering custom deterministic compilers locally, mapping precise banking anomalies via Isolation Forest models, to managing fully distributed full-stack ecosystems, I bring an unwavering execution standard.
                 </p>
               </div>
 

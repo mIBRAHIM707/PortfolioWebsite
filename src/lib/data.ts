@@ -39,7 +39,7 @@ export const skillCategories: SkillCategory[] = [
     name: "Web & Edge",
     icon: Webhook,
     skills: [
-      { name: "Next.js 14" },
+      { name: "Next.js 16" },
       { name: "React" },
       { name: "Node.js" },
       { name: "Express" },
@@ -52,10 +52,10 @@ export const skillCategories: SkillCategory[] = [
     icon: Cpu,
     skills: [
       { name: "Data Pipelines" },
-      { name: "Scikit-learn" },
+      { name: "scikit-learn" },
       { name: "TensorFlow" },
-      { name: "Pandas/NumPy" },
-      { name: "Isolation Forests" },
+      { name: "pandas / NumPy" },
+      { name: "Isolation Forest" },
     ],
   },
   {
@@ -111,7 +111,7 @@ export const projects: Project[] = [
     id: "2",
     title: "Pseudocode Compiler & Web IDE",
     technologies: ["Python", "Lex/Yacc", "React"],
-    description: "Designed a deterministic Lexer and Parser capable of bridging abstract structural logic into execution-ready Python. Integrated a real-time browser IDE to drastically cut learning curves for syntax.",
+    description: "Designed a deterministic Lexer and Parser capable of bridging abstract structural logic into execution-ready Python. Integrated a real-time browser IDE to drastically cut the learning curve for syntax.",
     role: "Core Developer",
     features: ["Abstract Syntax Tree Parsing", "Tokenization Engine", "Browser Interpreter Execution", "Strict Typed AST"],
     imageUrl: "/pseudo.ico",
@@ -122,7 +122,7 @@ export const projects: Project[] = [
     id: "3",
     title: "Zero-Dependency Neural Network",
     technologies: ["Python", "NumPy", "Math"],
-    description: "Built a fully functional deep learning framework utilizing contiguous mathematical models. Wrote the forward/back propagation and gradient descent algorithms precisely from scratch.",
+    description: "Built a fully functional deep learning framework utilizing contiguous mathematical models. Wrote the forward and backward propagation and gradient descent algorithms precisely from scratch.",
     role: "Machine Learning Researcher",
     features: ["Matrix Calculations", "Backpropagation Algebra", "Custom Loss Functions", "90%+ MNIST Validation"],
     imageUrl: "/neural%20(2).jpg",
@@ -132,7 +132,7 @@ export const projects: Project[] = [
   {
     id: "4",
     title: "Banking Anomaly Framework",
-    technologies: ["Pandas", "Scikit", "Power BI"],
+    technologies: ["pandas", "scikit-learn", "Power BI"],
     description: "Formulated highly precise Random Forest and Isolation Forest models explicitly to unmask underlying banking transactional anomalies, achieving an 85% validation precision hit rate.",
     role: "ML Operations / Internship",
     features: ["Fraud Detection Algorithm", "Pipeline Automation", "Feature Engineering", "Data Modeling"],
@@ -160,8 +160,8 @@ export const achievements: Achievement[] = [
   },
   {
     id: "2",
-    title: "2nd Place GDGOC x BAVE",
-    description: "Led the architectural blueprint for a 4-person team, out-engineering 10+ competitor teams under strict time constraints.",
+    title: "2nd Place GDGoC x BAVE",
+    description: "Led the architectural blueprint for a 4-person team, out-engineering 10+ competing teams under strict time constraints.",
     icon: Sparkles,
     year: "2025"
   },
