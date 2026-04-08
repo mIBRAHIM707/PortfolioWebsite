@@ -50,11 +50,9 @@ export function Header() {
           className="flex items-center gap-2.5 group outline-none"
           aria-label="Muhammad Ibrahim — Home"
         >
-          {/* Monogram badge */}
-          <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center shrink-0 group-hover:opacity-80 transition-opacity">
-            <span className="text-background text-xs font-bold font-display tracking-tight">
-              {initials}
-            </span>
+          {/* Favicon Logo */}
+          <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 group-hover:opacity-80 transition-opacity bg-foreground overflow-hidden">
+            <img src="/favicon.ico" alt="Logo" className="w-full h-full object-cover" />
           </div>
           <span className="font-display font-semibold text-sm tracking-tight hidden sm:block text-foreground/90 group-hover:text-foreground transition-colors">
             {personalInfo.name.split(" ").slice(-1)[0]}

@@ -45,7 +45,7 @@ export default function HomePage() {
       {/* ═══════════════════════════════════════════ */}
       {/*  HERO SECTION                              */}
       {/* ═══════════════════════════════════════════ */}
-      <section className="relative w-full max-w-5xl mx-auto px-6 pt-40 pb-28 md:pt-52 md:pb-36">
+      <section className="relative w-full max-w-5xl mx-auto px-6 pt-32 pb-28 md:pt-40 md:pb-36">
         {/* Availability badge */}
         <div
           className="status-badge mb-10 opacity-0 animate-fade-in-up"

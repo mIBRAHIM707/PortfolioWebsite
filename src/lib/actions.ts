@@ -23,6 +23,10 @@ export type ContactFormState = {
   success: boolean;
 };
 
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
 export async function submitContactForm(
   prevState: ContactFormState,
   formData: FormData
@@ -42,13 +46,32 @@ export async function submitContactForm(
     };
   }
 
-  console.log("Contact Form Data:", validatedFields.data);
-  console.log(`Simulating sending email to: ${personalInfo.email}`);
+  try {
+    const { data, error } = await resend.emails.send({
+      from: 'Portfolio Contact Form <onboarding@resend.dev>',
+      to: [personalInfo.email],
+      subject: `New Contact Form Message: ${validatedFields.data.subject}`,
+      text: `Name: ${validatedFields.data.name}\nEmail: ${validatedFields.data.email}\n\nMessage:\n${validatedFields.data.message}`,
+      replyTo: validatedFields.data.email,
+    });
 
-  await new Promise(resolve => setTimeout(resolve, 1000));
+    if (error) {
+      console.error("Resend error:", error);
+      return {
+        message: "Failed to send the email. Ensure RESEND_API_KEY is properly configured.",
+        success: false,
+      };
+    }
+  } catch (error) {
+    console.error("Unexpected error:", error);
+    return {
+      message: "An unexpected error occurred. Please try again.",
+      success: false,
+    };
+  }
 
   return {
-    message: "Your message has been sent successfully! Muhammad Ibrahim will get back to you soon.",
+    message: "Your message has been sent successfully!",
     success: true,
   };
 }
