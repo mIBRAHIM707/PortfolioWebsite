@@ -65,7 +65,7 @@ export default function HomePage() {
         >
           <Avatar className="w-16 h-16 border-2 border-border/60 shadow-lg">
             <AvatarImage
-              src="/pik400x400.jpg"
+              src="/me.jpeg"
               alt={personalInfo.name}
               className="object-cover"
             />

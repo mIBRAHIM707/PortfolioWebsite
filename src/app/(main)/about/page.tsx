@@ -164,7 +164,7 @@ export default function AboutPage() {
                 {/* Frame */}
                 <div className="relative rounded-2xl overflow-hidden border border-border/50 bg-card shadow-2xl shadow-black/30 w-[260px] h-[320px] md:w-[300px] md:h-[370px]">
                   <Image
-                    src="/pik400x400.jpg"
+                    src="/me.jpeg"
                     alt={`${personalInfo.name} — Software Engineer`}
                     fill
                     className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
